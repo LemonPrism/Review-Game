@@ -17,25 +17,37 @@ final int MAINGAME=1;
 final int GAMEOVER=2;
 final int YOUWON = 3;
 
+boolean left, right;
 
-PImage[] gif; 
-int nOfFrames; 
-int f; 
+
+PImage[] gif;
+int nOfFrames;
+int f;
+
+//score
+int score;
 
 
 void setup () {
-nOfFrames= 34;
-gif = new PImage[nOfFrames];
 
-int i = 0; 
-while (i < nOfFrames ){
-  gif[i] = loadImage("frame_"+i+"_delay-0.04s.gif"); 
- i=i+1;  
-}
+  h = 350;
+  
+
+  nOfFrames= 34;
+  gif = new PImage[nOfFrames];
+
+  int i = 0;
+  while (i < nOfFrames ) {
+    gif[i] = loadImage("frame_"+i+"_delay-0.04s.gif");
+    i=i+1;
+  }
 
 
   size ( 800, 800);
-  mode = MENU;
+  mode = MAINGAME;
+
+  right=false;
+  left = false;
 }
 
 

@@ -15,15 +15,22 @@ void menu() {
   text("TAXI RUSH", 170, 200 );
 
 
- 
-  if ( mouseX > 300 && mouseX < 500 && mouseY< 500  && mouseY > 600) {
-   fill (white);
-  }else {
-   fill( turq);  
+
+ if (mouseX > 300 && mouseX < 500 && mouseY > 500 && mouseY < 600) {
+    fill(255); 
+} else {
+    fill(turq); 
     
-  }
-    rect(300, 500, 200, 100);
+}
+  rect(300, 500, 200, 100);
+  
+  
 }
 
 void menuClicks() {
+ if (mouseX > 300 && mouseX < 500 && mouseY > 500 && mouseY < 600) {
+ mode= MAINGAME;
+    
+}
+
 }
