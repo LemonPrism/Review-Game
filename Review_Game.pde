@@ -19,6 +19,8 @@ final int YOUWON = 3;
 
 boolean left, right;
 
+boolean keyProcessed = false;
+
 
 PImage[] gif;
 int nOfFrames;
@@ -31,7 +33,7 @@ int score;
 void setup () {
 
   h = 350;
-  
+
 
   nOfFrames= 34;
   gif = new PImage[nOfFrames];

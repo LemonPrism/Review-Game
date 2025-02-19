@@ -1,41 +1,14 @@
-void keyPressed(){
-  
-  
-  
-  
-  if ( keyCode== LEFT){
-   left= true;  
-    
-    
+void keyPressed() {
+  if (keyProcessed=true) {
+    if (keyCode == LEFT) {
+      h = max(h - 120, 230);
+    } else if (keyCode == RIGHT) {
+      h = min(h + 120, 470);
+    }
+    keyProcessed = true;
   }
-   if ( keyCode== RIGHT){
-   right= true;  
-    
-    
-  }
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
-void keyReleased(){
-  
-  if ( keyCode== LEFT){
-   left= false;  
-    
-    
-  }
-   if ( keyCode== RIGHT){
-   right= false;  
-    
-    
-  }
+void keyReleased() {
+
+  keyProcessed = false;
 }
