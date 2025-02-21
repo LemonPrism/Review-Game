@@ -1,6 +1,7 @@
 
-int h;
 
+int h;
+float roadSpeed, roadY; 
 void maingame() {
 
 
@@ -35,8 +36,23 @@ void maingame() {
 
   car(h, 700);
 
+int i;
+float s;
+s = 0.1;
+i = 400;
+while (i < 900) {
+    i = i + 100;
+    s = s + 0.3;
+    roadline(400, i, s);
+    if (i > 900) {
+        i = 400;
+       s= 0.1; 
+    }
+}
 
-  roadline (0, 0, 1);
+
+  
+  
 }
 
 void maingameClicks() {
@@ -81,22 +97,19 @@ void car(int x, int y) {
 }
 
 
-void roadline ( int x, int y, int s) {
 
-  strokeWeight( 5);
-  noStroke();
-  scale(s);
-  fill( white);
+void roadline(int x, int y, float s) {
   pushMatrix();
-  translate ( x, y);
-  //rect( 0, 0, 5, 50);
-  quad ( 50 , 50 , 55 , 55, 0 , 0 , 20 , 20); 
+  translate(x, y); 
+  scale(s);
+  noStroke();
+  fill(white);
 
+ 
+  quad(-65, 0,   -45, -50,   -35, -50,  -55, 0);  
 
+  
+  quad(65, 0, 45, -50, 35, -50, 55, 0);
 
-
-
-
-
-    popMatrix();
+  popMatrix();
 }
