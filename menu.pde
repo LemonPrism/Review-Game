@@ -10,6 +10,10 @@ void menu() {
   if ( f== nOfFrames) {
     f=0;
   }
+  
+  //song.pause(); 
+  //failure.pause(); 
+  //yay.pause(); 
 
   textSize(100);
   fill(random(255));

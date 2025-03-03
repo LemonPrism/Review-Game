@@ -12,9 +12,12 @@ void gameover() {
   fill ( black);
   rect( 250, 500, 300, 100);
 
-   textSize(30);
-    fill(red);
-    text("Collision! Press 'R' to Restart", 200, 400);
+  textSize(30);
+  fill(red);
+  text("Collision! Press 'R' to Restart", 200, 400);
+  song.pause(); 
+  failure.play(); 
+  
 }
 
 void gameoverClicks() {

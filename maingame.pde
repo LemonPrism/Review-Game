@@ -1,21 +1,21 @@
 // Global variables
-int h = 350;          
+int h = 350;
 
 
 void maingame() {
   ///////////////background setting///////////////////////
   background(fgreen);
 
-  fill(#5f5f5f);        
+  fill(#5f5f5f);
   stroke(black);
   strokeWeight(3);
   triangle(150, 800, 400, 400, 650, 800);
   noStroke();
-  fill(lblue);          
+  fill(lblue);
   rect(0, 0, width, 400);
 
   /////////////////mountains////////////////////////
-  fill(#b3b3b3);      
+  fill(#b3b3b3);
   noStroke();
   triangle(0, 400, 200, 100, 500, 400);
   triangle(-200, 400, 0, 100, 300, 400);
@@ -23,73 +23,76 @@ void maingame() {
   triangle(200, 400, 500, 100, 700, 400);
 
 
-  
-  
-  
-  
-    for (int i = 0; i < 2; i++) {
-    enemyScale[i] = map(enemyY[i], 400, 800, 0.1, 1.0); 
+song.play ( );
+
+
+
+  for (int i = 0; i < 2; i++) {
+    enemyScale[i] = map(enemyY[i], 400, 800, 0.1, 1.0);
     enemyCar(enemyX[i], int(enemyY[i]), enemyScale[i], enemyWidth[i]);
-    
+
     if (!collision) {
-      enemyY[i] += roadSpeed; 
+      enemyY[i] += roadSpeed;
     }
-    
-   
+
+
     if (enemyY[i] > 900) {
       enemyX[i] = laneX[int(random(3))];
       enemyY[i] = 400;
       enemyScale[i] = 0.1;
-      if (!collision) score += 10; 
     }
-    
-   
+
+
     if (collisionDetected(h, 700, enemyX[i], enemyY[i], enemyScale[i], enemyWidth[i])) {
       collision = true;
       roadSpeed = 0;
     }
   }
 
-  car(h, 700);         
+  car(h, 700);
 
   ///////////lanes - Moving Road Lines//////////////////////////////
   strokeWeight(5);
   stroke(white);
 
-  // Update roadY to move lines downward
- if (!collision) roadY += roadSpeed;
 
-  float s = 0.1;       
-  for (int i = 0; i < 7; i++) { 
-    float currentY = roadY + (i * 70); 
-    if (currentY > 900) { 
-      currentY -= 480;    
+  if (!collision) roadY += roadSpeed;
+
+  float s = 0.1;
+  for (int i = 0; i < 7; i++) {
+    float currentY = roadY + (i * 70);
+    if (currentY > 900) {
+      currentY -= 480;
     }
-    
+
     if (currentY >= 400 && currentY <= 900) {
-     
-      float dynamicScale = map(currentY, 400, 800, s, 1.5); 
+
+      float dynamicScale = map(currentY, 400, 800, s, 1.5);
       roadline(400, int(currentY), dynamicScale);
     }
   }
 
-  
-  if (roadY > 900) {    
-    roadY = 400;       
+
+  if (roadY > 900) {
+    roadY = 400;
   }
   if (roadY > 900) roadY = 400;
 
- 
+
   if (collision) {
-    mode= GAMEOVER; 
+    mode= GAMEOVER;
   }
-  
-  
-  if (!collision) score += 1;
+
+
+  if (!collision) score = score + 1 ;
+
+  if (score > 1000) {
+
+    mode = YOUWON;
+  }
 }
 
 void maingameClicks() {
-  
 }
 
 void car(int x, int y) {
@@ -97,40 +100,40 @@ void car(int x, int y) {
   translate(x, y);
   fill(black);
   noStroke();
-  circle(20, 30, 20);   
-  circle(80, 30, 20);   
+  circle(20, 30, 20);
+  circle(80, 30, 20);
 
   fill(byellow);
   strokeWeight(3);
   stroke(black);
-  rect(40, -50, 20, 20, 50); 
+  rect(40, -50, 20, 20, 50);
   fill(lblue);
   strokeWeight(3);
   stroke(black);
-  rect(10, -40, 80, 60, 50); 
+  rect(10, -40, 80, 60, 50);
 
   textSize(10);
   fill(black);
-  text("taxi", 43, -30);    
+  text("taxi", 43, -30);
 
   fill(byellow);
   strokeWeight(3);
   stroke(black);
-  rect(0, 0, 100, 30, 28);   
+  rect(0, 0, 100, 30, 28);
 
   popMatrix();
 }
 
 void roadline(int x, int y, float s) {
   pushMatrix();
-  translate(x, y); 
-  scale(s);            
+  translate(x, y);
+  scale(s);
   noStroke();
   fill(white);
 
-  // Draw quads as road lines
-  quad(-65, 0, -45, -50, -35, -50, -55, 0);  
-  quad(65, 0, 45, -50, 35, -50, 55, 0);      
+
+  quad(-65, 0, -45, -50, -35, -50, -55, 0);
+  quad(65, 0, 45, -50, 35, -50, 55, 0);
 
   popMatrix();
 }
@@ -138,7 +141,7 @@ void roadline(int x, int y, float s) {
 
 void enemyCar(int x, int y, float s, int width) {
   pushMatrix();
-  translate(x - (width * s) / 2, y); 
+  translate(x - (width * s) / 2, y);
   scale(s);
   fill(red);
   stroke(black);
@@ -162,8 +165,8 @@ boolean collisionDetected(int taxiX, int taxiY, float enemyX, float enemyY, floa
   int enemyTop = int(enemyY);
   int enemyBottom = int(enemyY) + enemyH;
 
-  return (taxiLeft < enemyRight && 
-          taxiRight > enemyLeft && 
-          taxiTop < enemyBottom && 
-          taxiBottom > enemyTop);
+  return (taxiLeft < enemyRight &&
+    taxiRight > enemyLeft &&
+    taxiTop < enemyBottom &&
+    taxiBottom > enemyTop);
 }

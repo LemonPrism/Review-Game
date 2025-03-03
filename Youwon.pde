@@ -11,8 +11,10 @@ void youwon() {
   rect( 250, 500, 300, 100);
 
   fill ( white);
-  textSize ( 50);
-  text ( "Try again?", 300, 550);
+  textSize( 30);
+  text("Collision! Press 'R' to Restart", 200, 400);
+   yay.play(); 
+   song.pause(); 
 }
 
 void youwonClicks() {
