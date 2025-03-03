@@ -1,3 +1,4 @@
+
 void gameover() {
   background (black);
 
@@ -11,9 +12,9 @@ void gameover() {
   fill ( black);
   rect( 250, 500, 300, 100);
 
-  fill ( white);
-  textSize ( 50);
-  text ( "Try again?", 300, 550);
+   textSize(30);
+    fill(red);
+    text("Collision! Press 'R' to Restart", 200, 400);
 }
 
 void gameoverClicks() {
