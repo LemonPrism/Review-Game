@@ -27,6 +27,9 @@ void menu() {
     fill(turq);
   }
   rect(300, 500, 200, 100);
+  fill(black); 
+  textSize( 30); 
+  text( "PLAY", 370 , 570);  
 }
 
 void menuClicks() {
