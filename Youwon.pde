@@ -12,9 +12,13 @@ void youwon() {
 
   fill ( white);
   textSize( 30);
-  text("Collision! Press 'R' to Restart", 200, 400);
-   yay.play(); 
-   song.pause(); 
+  text("Press 'R' to Restart", 250, 400);
+
+
+  if ( mode== YOUWON) {
+    yay.play();
+  }
+  song.pause();
 }
 
 void youwonClicks() {

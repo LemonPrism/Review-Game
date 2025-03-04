@@ -22,8 +22,21 @@ void keyPressed() {
       mode = MENU;
     }
   }
+  if (mode == MAINGAME) {
+
+
+    if ( key == ' ' ) {
+      mode = PAUSE;
+    }
+  }
 }
 void keyReleased() {
+  if (mode == PAUSE) {
 
+
+    if ( key == ' ' ) {
+      mode = MAINGAME;
+    }
+  }
   keyProcessed = false;
 }

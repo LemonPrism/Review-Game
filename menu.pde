@@ -10,14 +10,17 @@ void menu() {
   if ( f== nOfFrames) {
     f=0;
   }
-  
-  //song.pause(); 
-  //failure.pause(); 
-  //yay.pause(); 
+
+  song.play();
+  failure.pause();
+  yay.pause();
 
   textSize(100);
   fill(random(255));
   text("TAXI RUSH", 170, 200 );
+  fill( black); 
+  textSize( 50); 
+  text("GET TO 1000M", 250 , 300);  
 
 
 
@@ -27,9 +30,9 @@ void menu() {
     fill(turq);
   }
   rect(300, 500, 200, 100);
-  fill(black); 
-  textSize( 30); 
-  text( "PLAY", 370 , 570);  
+  fill(black);
+  textSize( 30);
+  text( "PLAY", 370, 570);
 }
 
 void menuClicks() {

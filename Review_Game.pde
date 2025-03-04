@@ -24,6 +24,7 @@ final int MENU=0;
 final int MAINGAME=1;
 final int GAMEOVER=2;
 final int YOUWON = 3;
+final int PAUSE= 4;
 
 boolean left, right;
 
@@ -50,8 +51,8 @@ int[] laneX = {250, 400, 550};
 
 Minim minim;
 AudioPlayer song;
-AudioPlayer failure; 
-AudioPlayer yay; 
+AudioPlayer failure;
+AudioPlayer yay;
 
 void setup () {
   roadSpeed = 5;
@@ -69,9 +70,9 @@ void setup () {
     i=i+1;
 
     minim = new Minim(this);
-    song = minim.loadFile("MUSIC.mp3"); 
-    failure = minim.loadFile("FAILURE.wav"); 
-    yay = minim.loadFile ( " SUCCESS.wav" ) ; 
+    song = minim.loadFile("MUSIC.mp3");
+    failure = minim.loadFile("FAILURE.wav");
+    yay = minim.loadFile ( "SUCCESS.wav" ) ;
   }
 
 
@@ -100,5 +101,7 @@ void draw () {
 
 
     youwon();
+  } else if (mode==PAUSE) {
+    pause();
   }
 }

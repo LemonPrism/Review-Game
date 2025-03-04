@@ -23,7 +23,7 @@ void maingame() {
   triangle(200, 400, 500, 100, 700, 400);
 
 
-song.play ( );
+  song.play ( );
 
 
 
@@ -60,15 +60,15 @@ song.play ( );
 
   float s = 0.1;
   for (int i = 0; i < 7; i++) {
-    float currentY = roadY + (i * 70);
-    if (currentY > 900) {
-      currentY -= 480;
+    float cY = roadY + (i * 70);
+    if (cY > 900) {
+      cY -= 480;
     }
 
-    if (currentY >= 400 && currentY <= 900) {
+    if (cY >= 400 && cY <= 900) {
 
-      float dynamicScale = map(currentY, 400, 800, s, 1.5);
-      roadline(400, int(currentY), dynamicScale);
+      float dScale = map(cY, 400, 800, s, 1.5);
+      roadline(400, int(cY), dScale);
     }
   }
 
