@@ -51,7 +51,7 @@ void maingame() {
 
   car(h, 700);
 
-  ///////////lanes - Moving Road Lines//////////////////////////////
+  ///////////lanes - Moving Road Lines///////////////
   strokeWeight(5);
   stroke(white);
 
@@ -89,6 +89,14 @@ void maingame() {
   if (score > 1000) {
 
     mode = YOUWON;
+  }
+  textSize(30);
+  text (score, 750, 50);
+
+
+  if (score >= 900) {
+
+    flags(500, 100, 1);
   }
 }
 
@@ -152,13 +160,11 @@ void enemyCar(int x, int y, float s, int width) {
 
 boolean collisionDetected(int taxiX, int taxiY, float enemyX, float enemyY, float enemyScale, int enemyWidth) {
   int taxiWidth = 100;
-  int taxiHeight = 80;
   int taxiLeft = taxiX;
   int taxiRight = taxiX + taxiWidth;
   int taxiTop = taxiY - 50;
   int taxiBottom = taxiY + 30;
 
-  int enemyW = int(enemyWidth * enemyScale);
   int enemyH = int(40 * enemyScale);
   int enemyLeft = int(enemyX - (enemyWidth * enemyScale) / 2);
   int enemyRight = int(enemyX + (enemyWidth * enemyScale) / 2);
@@ -169,4 +175,33 @@ boolean collisionDetected(int taxiX, int taxiY, float enemyX, float enemyY, floa
     taxiRight > enemyLeft &&
     taxiTop < enemyBottom &&
     taxiBottom > enemyTop);
+}
+
+
+
+
+
+void flags (float x, float y, float s ) {
+
+  pushMatrix ();
+  translate ( x, y);
+  scale ( s);
+  strokeWeight ( 30);
+  line ( 0, 0, 0, 50);
+  fill ( #66ff00);
+  rect ( 0, 0, 100, 50);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  popMatrix();
 }

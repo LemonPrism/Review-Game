@@ -19,6 +19,7 @@ color sblue= #4682B4;
 color byellow= #ffea00;
 color fgreen= #4F7942;
 color red = #FF0000;
+color bgreen = #66ff00;
 int mode;
 final int MENU=0;
 final int MAINGAME=1;
